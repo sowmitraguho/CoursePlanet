@@ -15,16 +15,18 @@ export const Routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
-            },{
+                element: <Home></Home>,
+                loader: () => fetch(`http://localhost:8000/course`)
+            },
+            {
                 path: '/category/:id',
-                element: <Categories></Categories>
-                
+                element: <Categories></Categories>,
+                loader: ({params}) => fetch(`http://localhost:8000/categories/${params.id}`)
             },
             {
                 path: '/course/:id',
-                element: <Course></Course>
-                
+                element: <Course></Course>,
+                loader: ({params}) => fetch(`http://localhost:8000/course/${params.id}`)
             },
             {
                 path: '/login',

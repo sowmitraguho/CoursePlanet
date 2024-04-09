@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const CourseLinks = () => {
-  const [categories, setCategories] = useState("");
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:8000/categories")
